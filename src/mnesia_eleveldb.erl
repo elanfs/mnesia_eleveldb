@@ -48,7 +48,8 @@
 %% DEBUG API
 %%
 
--export([show_table/1,
+-export([get_ref/1,
+        show_table/1,
          show_table/2,
          show_table/3,
          fold/6]).
@@ -227,6 +228,9 @@ default_alias() ->
 %% ----------------------------------------------------------------------------
 %% DEBUG API
 %% ----------------------------------------------------------------------------
+get_ref(Tab) -> 
+  {Ref, _Type, _RecName} = get_ref(default_alias(), Tab),
+  Ref.
 
 %% A debug function that shows the leveldb table content
 show_table(Tab) ->
